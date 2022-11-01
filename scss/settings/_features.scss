@@ -1,0 +1,33 @@
+#landingpage{
+    // flexed boxes
+    .lpTilesFlex{
+        width: calc(100% + 20px);
+        margin-left: -10px;
+        @include flex;
+        align-items: stretch;
+    }
+
+    // gray background gradient
+    .lpGrayGrad{
+        background: rgb(248,248,248);
+        background: linear-gradient(0deg, rgba(248,248,248,1) 0%, rgba(255,255,255,1) 100%);
+    }
+
+    // alza gradients
+    @each $name, $hex in $alza-colors {
+        #landingpage .lpGrad-#{$name}{
+            background: linear-gradient(to right, $hex, lighten($hex, 12%));
+        }
+    }
+}
+
+// media
+@media only screen and (max-width: 980px){
+    .mobile #landingpage,
+    .mobileapp #landingpage{
+        .lpTilesFlex{
+            width: calc(100% + 20px);
+            margin-left: -10px;
+        }
+    }
+}

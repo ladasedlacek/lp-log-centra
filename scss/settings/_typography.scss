@@ -1,0 +1,223 @@
+// size mixin
+@function size($value) {
+    $style: ($value / 16) + rem;	
+    @return $style;
+}
+
+// roboto
+@mixin roboto{
+    font-family: 'Roboto', sans-serif;
+}
+
+// thunder
+@font-face {
+    font-family: 'ThunderExtBdIta';
+    src: url('https://cdn.alza.cz/Foto/or/lp/apple-compete/build/font/Thunder-ExtraBoldLCItalic.woff') format('woff'), /* Modern Browsers */
+         url('https://cdn.alza.cz/Foto/or/lp/apple-compete/build/font/Thunder-ExtraBoldLCItalic.woff2') format('woff2'), /* Modern Browsers */
+         url('https://cdn.alza.cz/Foto/or/lp/apple-compete/build/font/Thunder-ExtraBoldLCItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('https://i.alza.cz/Foto/or/lp/apple-compete/build/font/Thunder-ExtraBoldLCItalic.otf') format("opentype");
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+#landingpage{
+    // headlines
+    .notMoveH1,
+    .hdl2,
+    .hdl3{
+        font-weight: 700;
+        @include roboto;
+        display: block;
+        color: $color-alza;
+        margin: 0;
+    }
+    
+    .notMoveH1{
+        font-size: size(50);
+        line-height: size(68);
+    }
+
+    .notMoveH1.h1B{
+        font-size: size(52);
+        line-height: size(72);
+    }
+
+    .notMoveH1.h1S{
+        font-size: size(40);
+        line-height: size(52);
+    }
+    
+    .hdl2{
+        font-size: size(30);
+        line-height: size(42);
+        color: $color-black;
+        text-transform: uppercase;
+    }
+        
+    .hdl3{
+        font-size: size(20);
+        line-height: size(32);
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    // body text
+    p,
+    a,
+    li,
+    .perex,
+    .body-1,
+    .body-2,
+    .listItems{
+        display: block;
+        font-weight: 400;
+        @include roboto;
+        color: $color-black;
+        margin: 0;
+
+        &--link{
+            display: inline-block;
+            font-weight: 400;
+            @include roboto;
+            text-decoration: underline;
+            color: $color-media;
+            transition: .3s ease-in-out;
+
+            &:hover{
+                color: darken($color: $color-media, $amount: 6%);
+            }
+        }
+
+        strong{
+            font-weight: 500 !important;
+        }
+    }
+
+    .perex,
+    .perex--link{
+        font-size: size(16);
+        line-height: size(26);
+        color: $color-grey-6;
+    }
+
+    .body-1,
+    .body-1--item,
+    .body-1--link{
+        font-size: size(14);
+        line-height: size(24);
+    }
+
+    .body-2,
+    .body-2--link{
+        font-size: size(12);
+        line-height: size(21);
+    }
+
+    .subHdl,
+    .subHdl--link{
+        font-size: size(20);
+        line-height: size(32);
+        color: $color-grey-6;
+    }
+
+    // list items
+    .lpListItems{
+        padding-left: 0;
+
+        &__item{
+            color: $color-grey-6;
+            font-size: size(14);
+            line-height: size(24);
+            margin-top: 8px;
+            padding-left: 32px;
+            position: relative;
+
+            &::before{
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 1px;
+                width: 20px;
+                height: 20px;
+                background: url('https://cdn.alza.cz/Foto/or/lp/usetrete/build/img/check-blue.svg') center no-repeat;
+                background-size: 100%;
+            }
+
+            strong{
+                font-weight: 500;
+            }
+
+            &:first-of-type{
+                margin-top: 0;
+            }
+        }
+    }
+
+    // warning message
+    .body-2.lpInfoMessage{
+        padding: 12px 15px;
+        border-radius: 100px;
+        background-color: $color-white;
+        margin: 24px auto 0;
+        display: inline-block;
+        color: $color-grey-6;
+        font-weight: 500;
+        position: relative;
+        padding-left: 45px;
+
+        &::before{
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 13px;
+            background: url('https://cdn.alza.cz/Foto/or/lp/alzaexpres-complet/build/img/icons-circle-info.svg') center no-repeat;
+            background-size: 100%;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .fontNormal{
+        font-weight: 400;
+    }
+
+    .fontMedium{
+        font-weight: 500;
+    }
+
+    section .sectionTop{
+        max-width: 85%;
+        margin: 20px auto 0;
+    }
+
+    strong{
+        font-weight: 700;
+    }
+    
+    a{
+        text-decoration: none;
+    }
+
+    sup{
+        font-size: size(10);
+        line-height: size(10);
+    }
+}
+
+// media
+@media only screen and (max-width: 650px){
+    .mobile #landingpage,
+    .mobileapp #landingpage{
+        .notMoveH1,
+        .notMoveH1.h1B{
+            font-size: size(40);
+            line-height: size(52);
+        }
+
+        .hdl3{
+            font-size: size(18);
+            line-height: size(28);
+        }
+    }
+}

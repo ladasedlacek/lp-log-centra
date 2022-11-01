@@ -1,0 +1,19 @@
+@mixin center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin flex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+@mixin shadow{
+    box-shadow: 0 1px 4px rgba($color: $color-black, $alpha: .15);
+}

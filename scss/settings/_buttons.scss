@@ -1,0 +1,92 @@
+// alza buttons
+@mixin height($value) {
+    line-height: $value + px;
+    height: $value + px;
+}
+
+#landingpage .btn{
+    display: table;
+    padding: 0 24px;
+    border-radius: 4px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba($color: $color-black, $alpha: .15);
+    @include height(40);
+    transition: .3s ease-in-out;
+    cursor: pointer;
+
+    .btn-text{
+        line-height: 40px;
+    }
+
+    &--small{
+        @include height(30);
+
+        .btn-text{
+            line-height: 30px;
+        }
+    }
+
+    &--big{
+        @include height(60);
+        padding: 0 32px;
+
+        .btn-text{
+            line-height: 60px;
+        }
+    }
+
+    &--dis{
+        opacity: .5;
+        cursor: auto;
+        box-shadow: none;
+    }
+
+    &--under{
+        display: table;
+        margin: 32px auto 0;
+        position: relative;
+        z-index: 100;
+    }
+
+    // button text
+    .btn-text{
+        font-size: 14px;
+        font-weight: 500 !important;
+        color: $color-white;
+        position: relative;
+        z-index: 3;
+        transition: .3s ease-in-out;
+        font-family: 'Roboto', sans-serif;
+    }
+}
+
+#landingpage .btn--big .btn-text{
+    font-size: 20px;
+}
+
+// extend all buttons class for each color
+@each $name, $hex in $alza-colors {
+    #landingpage .btn--#{$name}{
+        @extend .btn;
+        background: $hex;
+
+        &:hover{
+            background: darken($color: $hex, $amount: 6%);
+            box-shadow: 0 1px 8px rgba($color: $color-black, $alpha: .3);
+        }
+
+        &:active{
+            background: darken($color: $hex, $amount: 12%);
+            box-shadow: none;
+        }
+    }
+}
+
+// white and gray version of button
+#landingpage .btn--white .btn-text,
+#landingpage .btn--gray .btn-text{
+    color: $color-grey-6;
+}
