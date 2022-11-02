@@ -29,7 +29,7 @@
         font-weight: 700;
         @include roboto;
         display: block;
-        color: $color-alza;
+        color: $color-black;
         margin: 0;
     }
     
@@ -51,15 +51,11 @@
     .hdl2{
         font-size: size(30);
         line-height: size(42);
-        color: $color-black;
-        text-transform: uppercase;
     }
         
     .hdl3{
-        font-size: size(20);
-        line-height: size(32);
-        font-weight: 500;
-        text-transform: uppercase;
+        font-size: size(22);
+        line-height: size(27);
     }
 
     // body text
@@ -186,7 +182,7 @@
         font-weight: 500;
     }
 
-    section .sectionTop{
+    section .body-1--subHeadline{
         max-width: 85%;
         margin: 20px auto 0;
     }
@@ -218,6 +214,16 @@
         .hdl3{
             font-size: size(18);
             line-height: size(28);
+        }
+
+        .subHdl,
+        .subHdl--link{
+            font-size: size(18);
+            line-height: size(30);
+        }
+
+        .body-1--subHeadline{
+            max-width: 100%;
         }
     }
 }

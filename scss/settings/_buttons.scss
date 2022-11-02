@@ -6,32 +6,32 @@
 
 #landingpage .btn{
     display: table;
-    padding: 0 24px;
+    padding: 0 15px;
     border-radius: 4px;
     position: relative;
     z-index: 1;
     overflow: hidden;
     text-align: center;
     box-shadow: 0 1px 4px rgba($color: $color-black, $alpha: .15);
-    @include height(40);
+    @include height(42);
     transition: .3s ease-in-out;
     cursor: pointer;
 
     .btn-text{
-        line-height: 40px;
+        line-height: 42px;
     }
 
     &--small{
-        @include height(30);
+        @include height(32);
 
         .btn-text{
-            line-height: 30px;
+            line-height: 32px;
         }
     }
 
     &--big{
         @include height(60);
-        padding: 0 32px;
+        padding: 0 25px;
 
         .btn-text{
             line-height: 60px;

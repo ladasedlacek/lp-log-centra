@@ -1,16 +1,12 @@
 #landingpage{
     .lpHeader{
         padding: 110px 0;
-        background: url('../../build/img/background.png') center no-repeat;
+        background: url('https://cdn.alza.cz/Foto/or/lp/log-centra/build/img/background.png') center no-repeat;
         background-size: cover;
 
         &__contentWrapper{
             max-width: 50%;
             text-align: left;
-
-            .notMoveH1{
-                color: $color-black;
-            }
 
             .subHdl{
                 margin-top: 10px;
@@ -36,6 +32,10 @@
     .mobileapp #landingpage{
         .lpHeader{
             padding: 80px 0;
+
+            &__contentWrapper{
+                max-width: 75%;
+            }
         }
     }
 }
