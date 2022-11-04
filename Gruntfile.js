@@ -45,6 +45,19 @@ module.exports = function (grunt) {
             }
         },
 
+        postcss: {
+            options: {
+              map: false,
+         
+              processors: [
+                require('autoprefixer')()
+              ]
+            },
+            dist: {
+              src: 'scss/main.css'
+            }
+        },
+
         cssnano: {
             options: {
                 sourcemap: false
@@ -53,19 +66,6 @@ module.exports = function (grunt) {
                 files: {
                     'build/css/style.min.css': 'scss/main.css'
                 }
-            }
-        },
-
-        postcss: {
-            options: {
-              map: false,
-         
-              processors: [
-                require('autoprefixer')
-              ]
-            },
-            dist: {
-              src: 'build/css/style.min.css'
             }
         },
 
@@ -115,5 +115,5 @@ module.exports = function (grunt) {
     grunt.registerTask('css', ['sass', 'postcss', 'cssnano']);
     grunt.registerTask('js', ['clean', 'babel', 'uglify']);
     grunt.registerTask('img', ['image', 'cwebp', 'svg_sprite']);
-    grunt.registerTask('default', ['sass', 'cssnano', 'postcss', 'babel', 'uglify', 'watch']);
+    grunt.registerTask('default', ['sass', 'postcss', 'cssnano', 'babel', 'uglify', 'watch']);
 };
