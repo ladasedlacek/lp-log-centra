@@ -3,6 +3,18 @@
         padding: 110px 0;
         background: url('https://cdn.alza.cz/Foto/or/lp/log-centra/build/img/background.png') center no-repeat;
         background-size: cover;
+        position: relative;
+
+        &::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background: rgb(255,255,255);
+            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+        }
 
         &__contentWrapper{
             max-width: 50%;
